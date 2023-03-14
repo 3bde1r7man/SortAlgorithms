@@ -3,22 +3,26 @@
 #include <vector>
 
 using namespace std;
-template<class T>
-void InsertionSort(T [], int);
-
 
 template<class T>
-void SelectionSort(T [], int);
+void insertionSort(T [], int);
 
 template<class T>
-void BubbleSort(T data[], int n);
-
-
-template<class T>
-void ShellSort();
-
+void selectionSort(T [], int);
 
 template<class T>
-void MergeSort();
+void bubbleSort(T data[], int n);
+
+template<class T>
+void shellSort();
+
+template<class T>
+void countSort();
+
+template<class T>
+void mergeSort();
+
+template<class T>
+void quickSort();
 
 
