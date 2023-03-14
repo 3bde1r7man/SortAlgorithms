@@ -1,14 +1,17 @@
-//#include"sort.h"
+#include"Sort.cpp"
 
-#include<iostream>
-using namespace std;
+using namespace sortlib;
 
 
 int main() {
-	int x[10] = { 5,3,21,3,2,1,3,5,6,7 };
-	for (int i = 0; i <10; i++)
-	{
-		cout << x[i] << ' ';
-	}
-}
+    int arr[] = {5, 2, 9, 1, 5, 6};
+    int n = sizeof(arr)/sizeof(arr[0]);
 
+    sortlib::bubbleSort(arr, n);
+
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
