@@ -1,24 +1,35 @@
 #pragma once
 #include <iostream>
-#include <vector>
+#include <algorithm>
 
 using namespace std;
-template<class T>
-void InsertionSort(T [], int);
 
+namespace sortlib {
 
-template<class T>
-void SelectionSort(T [], int);
+    template<class T>
+    void insertionSort(T[], int);
 
-template<class T>
-void BubbleSort(T data[], int n);
+    template<class T>
+    void selectionSort(T[], int);
 
+    template<class T>
+    void bubbleSort(T data[], int n);
 
-template<class T>
-void ShellSort();
+    template<class T>
+    void shellSort(T data[], int n);
 
+    template<class T>
+    void countSort(T data[], int n);
 
-template<class T>
-void MergeSort();
+    template<class T>
+    void mergeSort(T data[], int n);
+
+    template<class T>
+    void quickSort(T data[], int n);
+
+    
+
+}
+
 
 
