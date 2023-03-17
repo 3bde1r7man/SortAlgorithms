@@ -69,51 +69,50 @@ void sortlib::countSort(T data[], int n)
 }
 
 template<class T>
-void sortlib::merge(T data[], int right, int mid, int left)
+void sortlib::merge(T data[], int left, int mid, int right)
 {
     int n1 = mid - left + 1, n2 = right - mid;
-    vector<int> l(n1), r(n2);
+    vector<T> r(n2), l(n1);
 
     for (int i = 0; i < n1; i++)
     {
-        l[i] = arr[left + i];
+        l[i] = data[left + i];
     }
-    for (int i = 0; i < n2; i++)
+    for (int j = 0; j < n2; j++)
     {
-        r[i] = arr[mid + i + 1];
+        r[j] = data[mid + j + 1];
     }
     int i = 0, j = 0, k = left;
     while (i < n1 && j < n2) {
         if (l[i] < r[j]) {
-            arr[k++] = l[i++];
+            data[k++] = l[i++];
         }
         else
         {
-            arr[k++] = r[j++];
+            data[k++] = r[j++];
 
         }
     }
     while (i < n1) {
-        arr[k++] = l[i++];
+        data[k++] = l[i++];
     }
     while (j < n2) {
-        arr[k++] = r[j++];
+        data[k++] = r[j++];
     }
 }
 
 
 template<class T>
-void sortlib::mergeSort(T data[], int right, int left)
+void sortlib::mergeSort(T data[], int left, int right)
 {
     if (left >= right) {
         return;
     }
-
     else
     {
         int mid = (left + right) / 2;
         mergeSort(data, left, mid);
-        mergeSort(data, mid + 1, r);
+        mergeSort(data, mid + 1, right);
         merge(data, left, mid, right);
     }
 }
