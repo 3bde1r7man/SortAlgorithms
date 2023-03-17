@@ -1,4 +1,5 @@
 #include"sort.h"
+#include <vector>
 
 template<class T>
 void sortlib::insertionSort(T data[], int n)
@@ -68,8 +69,53 @@ void sortlib::countSort(T data[], int n)
 }
 
 template<class T>
-void sortlib::mergeSort(T data[], int n)
+void sortlib::merge(T data[], int right, int mid, int left)
 {
+    int n1 = mid - left + 1, n2 = right - mid;
+    vector<int> l(n1), r(n2);
+
+    for (int i = 0; i < n1; i++)
+    {
+        l[i] = arr[left + i];
+    }
+    for (int i = 0; i < n2; i++)
+    {
+        r[i] = arr[mid + i + 1];
+    }
+    int i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+        if (l[i] < r[j]) {
+            arr[k++] = l[i++];
+        }
+        else
+        {
+            arr[k++] = r[j++];
+
+        }
+    }
+    while (i < n1) {
+        arr[k++] = l[i++];
+    }
+    while (j < n2) {
+        arr[k++] = r[j++];
+    }
+}
+
+
+template<class T>
+void sortlib::mergeSort(T data[], int right, int left)
+{
+    if (left >= right) {
+        return;
+    }
+
+    else
+    {
+        int mid = (left + right) / 2;
+        mergeSort(data, left, mid);
+        mergeSort(data, mid + 1, r);
+        merge(data, left, mid, right);
+    }
 }
 
 template<class T>

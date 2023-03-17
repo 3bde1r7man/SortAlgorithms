@@ -22,7 +22,10 @@ namespace sortlib {
     void countSort(T data[], int n);
 
     template<class T>
-    void mergeSort(T data[], int n);
+    void merge(T data[], int, int, int);
+
+    template<class T>
+    void mergeSort(T data[], int, int);
 
     template<class T>
     void quickSort(T data[], int n);
