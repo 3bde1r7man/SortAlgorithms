@@ -26,9 +26,12 @@ namespace sortlib {
 
     template<class T>
     void mergeSort(T data[], int left , int right);
+    
+    template<class T>
+    int partition(T data[], int left, int right);
 
     template<class T>
-    void quickSort(T data[], int n);
+    void quickSort(T data[], int left, int right);
 
     
 

@@ -61,6 +61,19 @@ void sortlib::bubbleSort(T data[], int n)
 template<class T>
 void sortlib::shellSort(T data[], int n)
 {
+	T temp;
+	for (int gap = n/2; gap > 0; gap/=2)
+	{
+		for (int i = gap; i < n; i++)
+		{
+			temp = data[i];
+			int j;
+			for (j = i; j >= gap && data[j - gap] > temp; j -= gap) {
+				data[j] = data[j - gap];
+			}
+			data[j] = temp;
+		}
+	}
 }
 
 template<class T>
@@ -118,9 +131,34 @@ void sortlib::mergeSort(T data[], int left, int right)
 }
 
 template<class T>
-void sortlib::quickSort(T data[], int n)
+int sortlib::partition(T data[], int left, int right)
 {
+	T x = data[left];
+	int  i = left;
+	for (int j = left + 1; j <= right; j++)
+	{
+		if (data[j] < x) {
+			i++;
+			swap(data[i], data[j]);
+		}
+	}
+	swap(data[i], data[left]);
+	return i;
+	
+}
 
+template<class T>
+void sortlib::quickSort(T data[], int left, int right)
+{
+	if (left >= right) {
+		return;
+	}
+	else
+	{
+		int mid = partition(data, left, right);
+		quickSort(data, left, mid - 1);
+		quickSort(data, mid + 1, right);
+	}
 }
 
 
