@@ -8,7 +8,7 @@ int main() {
 	int x[10] = { 5,3,21,3,2,1,3,5,6,7 };
 	char c[10] = { 'z','e','a', 'y', 'o','b','l','p','r','w' };
 	string s[6] = {  "youssef", "sohaila", "ahmed","bassmal", "sara", "abdelrhman" };
-	quickSort(x, 0, 9);
+	countSort(x, 10, 21);
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -16,7 +16,7 @@ int main() {
 	}
 	cout << '\n';
 
-	quickSort(c, 0, 9);
+	/*quickSort(c, 0, 9);
 	for (int i = 0; i < 10; i++)
 	{
 		cout << c[i] << ' ';
@@ -27,6 +27,6 @@ int main() {
 	for (int i = 0; i < 6; i++)
 	{
 		cout << s[i] << ' ';
-	}
+	}*/
 }
 

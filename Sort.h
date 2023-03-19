@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
+
 using namespace std;
 
 namespace sortlib {
@@ -19,7 +20,7 @@ namespace sortlib {
     void shellSort(T data[], int n);
 
     template<class T>
-    void countSort(T data[], int n);
+    void countSort(T data[], int n, int k);
 
     template<class T>
     void merge(T data[], int left, int mid, int right);

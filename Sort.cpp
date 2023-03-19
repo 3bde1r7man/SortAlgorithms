@@ -77,8 +77,27 @@ void sortlib::shellSort(T data[], int n)
 }
 
 template<class T>
-void sortlib::countSort(T data[], int n)
+void sortlib::countSort(T data[], int n, int k)
 {
+	vector<int> c(k + 1, 0), b(n);
+	for (int j = 0; j < n; j++)
+	{
+		c[data[j]]++;
+	}
+	for (int i = 2; i <= k; i++)
+	{
+		c[i] += c[i - 1];
+	}
+	for (int j = n - 1; j >= 0; j--)
+	{
+		b[c[data[j]] - 1] = data[j];
+		c[data[j]]--;
+	}
+	for (int i = 0; i < n; i++)
+	{
+		data[i] = b[i];
+	}
+
 }
 
 template<class T>
