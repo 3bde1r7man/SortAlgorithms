@@ -1,57 +1,76 @@
-#include"sort.h"
+#include "Sort.h"
 #include "Sort.cpp"
-#include <chrono>
+
+
+
+
 using namespace sortlib;
 
 
 int main() {
-	/*int x[10] = { 5,3,21,3,2,1,3,5,6,7 };
-	char c[10] = { 'z','e','a', 'y', 'o','b','l','p','r','w' };
-	string s[6] = {  "youssef", "sohaila", "ahmed","bassmal", "sara", "abdelrhman" };
-	countSort(x, 10, 21);
 
-	for (int i = 0; i < 10; i++)
-	{
-		cout << x[i] << ' ';
-	}
-	cout << '\n';
-
-	quickSort(c, 0, 9);
-	for (int i = 0; i < 10; i++)
-	{
-		cout << c[i] << ' ';
-	}
-	cout << '\n';
-
-	quickSort(s, 0, 5);
-	for (int i = 0; i < 6; i++)
-	{
-		cout << s[i] << ' ';
-	}*/
-	int arr50000[50000];
+	int arr[200];
 	srand(time(0));
-	for (int i = 0; i < 50000; i++) {
-		arr50000[i] = rand();
+	for (int i = 0; i < 200; i++) {
+		arr[i] = rand();
 	}
-	int quick[50000]; 
-	for (int i = 0; i < 50000; i++) {
+	int insert[200], select[200], bubble[200], count[200], shell[200], merge[200], quick[200];
+	for (int i = 0; i < 200; i++) {
+		insert[i] = arr[i];
+		select[i] = arr[i];
+		bubble[i] = arr[i];
+		count[i] = arr[i];
+		shell[i] = arr[i];
+		merge[i] = arr[i];
+		quick[i] = arr[i];
+	}
 
-		
-		
-		
-		
-		quick[i] = arr50000[i];
+
+
+	insertionSort(insert, 200);
+	for (int i = 0; i < 200; i++)
+	{
+		cout << insert[i] << ' ';
 	}
-	
-	
-	
-	
-	
-	auto startquick = chrono::high_resolution_clock::now();
-	quickSort(quick, 0, 49999);
-	auto endquick= chrono::high_resolution_clock::now();
-	auto durationquick = duration_cast<chrono::milliseconds>(endquick - startquick);
-	cout << "the quick sort takes: " << durationquick.count() << '\n';
-	
+	cout << "\n------------------------------------------------------------\n";
+
+	selectionSort(select, 200);
+	for (int i = 0; i < 200; i++)
+	{
+		cout << select[i] << ' ';
+	}
+	cout << "\n------------------------------------------------------------\n";
+	bubbleSort(bubble, 200);
+	for (int i = 0; i < 200; i++)
+	{
+		cout << bubble[i] << ' ';
+	}
+	cout << "\n------------------------------------------------------------\n";
+	countSort(count, 200, *max_element(count, count + 200));
+	for (int i = 0; i < 200; i++)
+	{
+		cout << count[i] << ' ';
+	}
+	cout << "\n------------------------------------------------------------\n";
+	shellSort(shell, 200);
+	for (int i = 0; i < 200; i++)
+	{
+		cout << shell[i] << ' ';
+	}
+	cout << "\n------------------------------------------------------------\n";
+	mergeSort(merge, 0, 199);
+	for (int i = 0; i < 200; i++)
+	{
+		cout << merge[i] << ' ';
+	}
+	cout << "\n------------------------------------------------------------\n";
+	quickSort(quick, 0, 199);
+	for (int i = 0; i < 200; i++)
+	{
+		cout << quick[i] << ' ';
+	}
+	cout << "\n------------------------------------------------------------\n";
+
+
+
 }
-
